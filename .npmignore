@@ -1,7 +1,6 @@
-node_modules/
-*.d.ts
-*.log
-*.tgz
-
-!index.d.ts
-!index.ref.d.ts
+node_modules
+src
+typings
+tsconfig.json
+tslint.json
+typings.json

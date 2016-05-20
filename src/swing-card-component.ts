@@ -1,10 +1,8 @@
-import {Component, View, ElementRef, Host} from 'angular2/core';
+import {Component, ElementRef, Host} from '@angular/core';
 import {SwingStackComponent} from './swing-stack-component';
 
 @Component({
-  selector: '[swing-card]'
-})
-@View({
+  selector: '[swing-card]',
   template: `
     <ng-content></ng-content>
   `

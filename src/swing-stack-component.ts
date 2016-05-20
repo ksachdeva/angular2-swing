@@ -1,14 +1,12 @@
 declare var require: any;
 
-import {Component, View, ContentChildren, QueryList, AfterContentInit } from 'angular2/core';
+import {Component, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
 import {SwingCardComponent} from './swing-card-component';
 
 const Swing = require('swing');
 
 @Component({
-  selector: '[swing-stack]'
-})
-@View({
+  selector: '[swing-stack]',
   template: `
     <ng-content></ng-content>
   `
