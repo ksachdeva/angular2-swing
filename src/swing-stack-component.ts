@@ -3,23 +3,10 @@ declare var require: any;
 import {Component, ContentChildren, QueryList,
   AfterContentInit, EventEmitter } from '@angular/core';
 
+import { ThrowDirection, ThrowEvent, DragEvent, Stack, Card} from './swing';
 import {SwingCardComponent} from './swing-card-component';
 
 const Swing = require('swing');
-
-export enum ThrowDirection {
-  DIRECTION_LEFT = -1,
-  DIRECTION_RIGHT = 1
-}
-
-export interface ThrowEvent {
-  target: Element;
-  throwDirection: ThrowDirection;
-}
-
-export interface DragEvent {
-  target: Element;
-}
 
 @Component({
   selector: '[swing-stack]',
@@ -52,7 +39,7 @@ export class SwingStackComponent implements AfterContentInit {
   dragend: EventEmitter<DragEvent> = new EventEmitter();
 
   cards: SwingCardComponent[];
-  stack: any;
+  stack: Stack;
 
   constructor() {
     this.cards = [];

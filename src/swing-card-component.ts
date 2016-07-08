@@ -1,5 +1,6 @@
 import {Component, ElementRef, Host} from '@angular/core';
 import {SwingStackComponent} from './swing-stack-component';
+import {Card} from './swing';
 
 @Component({
   selector: '[swing-card]',
@@ -23,5 +24,9 @@ export class SwingCardComponent {
 
   getNativeElement() {
     return this.elmentRef.nativeElement;
+  }
+
+  getCard(): Card {
+    return this.swingStack.stack.getCard(this.getNativeElement());
   }
 }
