@@ -4,8 +4,8 @@
 npm install angular2-swing --save
 
 # Usage
-```javascript
-import {Component} from '@angular/core';
+```
+import {Component, ViewChild} from '@angular/core';
 
 import {SwingStackComponent, SwingCardComponent} from 'angular2-swing';
 
@@ -14,7 +14,7 @@ import {SwingStackComponent, SwingCardComponent} from 'angular2-swing';
   directives: [SwingStackComponent, SwingCardComponent],
   template: `
     <div id="viewport">
-      <ul class="stack" swing-stack>
+      <ul class="stack" swing-stack #myswing1 (throwout)="onThrowOut($event)">
         <li swing-card [ngClass]="c.name" *ngFor="let c of cards">{{ c.symbol }}</li>
       </ul>
     </div>
@@ -28,22 +28,37 @@ import {SwingStackComponent, SwingCardComponent} from 'angular2-swing';
         <p>Demonstration of <a href="https://github.com/ksachdeva/angular2-swing">
           https://github.com/ksachdeva/angular2-swing</a> implementation.</p>
     </div>
-
   `
 })
 export class App {
 
+  @ViewChild('myswing1') swingStack: SwingStackComponent;
+
   cards: Array<any>;
 
   constructor() {
-
-    console.log('in the ctor');
 
     this.cards = [
       { name: 'clubs', symbol: '♣' },
       { name: 'diamonds', symbol: '♦' },
       { name: 'spades', symbol: '♠' }
     ];
+  }
+
+  ngOnInit() {
+    // the swingStack will be set in ngOnInit and
+    // is not available in the ctor so we will hook up
+    // the events from here
+
+    // this is how you can manually hook up to the
+    // events instead of providing the event method in the template
+    this.swingStack.throwoutleft.subscribe((event: any) => console.log('Manual hook: ', event));
+  }
+
+  // This method is called by hooking up the event
+  // on the HTML element - see the template above
+  onThrowOut($event: any) {
+    console.log('Hook from the template', $event);
   }
 }
 ```
