@@ -1,6 +1,7 @@
 declare var require: any;
 
-import {Component, ContentChildren, QueryList, AfterContentInit, EventEmitter } from '@angular/core';
+import {Component, ContentChildren, QueryList,
+  AfterContentInit, EventEmitter } from '@angular/core';
 import {SwingCardComponent} from './swing-card-component';
 
 const Swing = require('swing');
