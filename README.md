@@ -10,8 +10,8 @@ import {Component, ViewChild, ViewChildren, QueryList} from '@angular/core';
 import {
   Stack,
   Card,
-  ThrowEvent,
-  DragEvent,
+  SwingEvent,
+  StackConfig,
   SwingStackComponent,
   SwingCardComponent} from 'angular2-swing';
 
@@ -20,7 +20,7 @@ import {
   directives: [SwingStackComponent, SwingCardComponent],
   template: `
     <div id="viewport">
-      <ul class="stack" swing-stack #myswing1 (throwout)="onThrowOut($event)">
+      <ul class="stack" swing-stack [config]="stackConfig" #myswing1 (throwout)="onThrowOut($event)">
         <li swing-card #mycards1 [ngClass]="c.name" *ngFor="let c of cards">{{ c.symbol }}</li>
       </ul>
     </div>
@@ -43,9 +43,15 @@ export class App {
   @ViewChildren('mycards1') swingCards: QueryList<SwingCardComponent>;
 
   cards: Array<any>;
+  stackConfig: StackConfig;
 
   constructor() {
-
+    this.stackConfig = {
+        throwOutConfidence: (offset, element) => {
+            //override default throwout detection with one twice as sensitive
+            return Math.min(Math.abs( offset ) / (element.offsetWidth / 2), 1);
+        }
+    }
     this.cards = [
       { name: 'clubs', symbol: '♣' },
       { name: 'diamonds', symbol: '♦' },
@@ -71,9 +77,9 @@ export class App {
     // this is how you can manually hook up to the
     // events instead of providing the event method in the template
     this.swingStack.throwoutleft.subscribe(
-      (event: ThrowEvent) => console.log('Manual hook: ', event));
+      (event: SwingEvent) => console.log('Manual hook: ', event));
 
-    this.swingStack.dragstart.subscribe((event: DragEvent) => console.log(event));
+    this.swingStack.dragstart.subscribe((event: SwingEvent) => console.log(event));
   }
 
   // This method is called by hooking up the event
