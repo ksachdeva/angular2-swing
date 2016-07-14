@@ -3,7 +3,7 @@ declare var require: any;
 import {Component, ContentChildren, QueryList,
   AfterContentInit, EventEmitter } from '@angular/core';
 
-import { ThrowDirection, ThrowEvent, DragEvent, Stack, Card} from './swing';
+import { ThrowDirection, SwingEvent, Stack, StackConfig, Card} from './swing';
 import {SwingCardComponent} from './swing-card-component';
 
 const Swing = require('swing');
@@ -13,6 +13,9 @@ const Swing = require('swing');
   template: `
     <ng-content></ng-content>
   `,
+  inputs: [
+    'config'
+  ],
   outputs: [
     'throwout',
     'throwoutend',
@@ -27,19 +30,20 @@ const Swing = require('swing');
 })
 export class SwingStackComponent implements AfterContentInit {
 
-  throwout: EventEmitter<ThrowEvent> = new EventEmitter();
-  throwoutend: EventEmitter<ThrowEvent> = new EventEmitter();
-  throwoutleft: EventEmitter<ThrowEvent> = new EventEmitter();
-  throwoutright: EventEmitter<ThrowEvent> = new EventEmitter();
-  throwin: EventEmitter<ThrowEvent> = new EventEmitter();
-  throwinend: EventEmitter<ThrowEvent> = new EventEmitter();
+  throwout: EventEmitter<SwingEvent> = new EventEmitter();
+  throwoutend: EventEmitter<SwingEvent> = new EventEmitter();
+  throwoutleft: EventEmitter<SwingEvent> = new EventEmitter();
+  throwoutright: EventEmitter<SwingEvent> = new EventEmitter();
+  throwin: EventEmitter<SwingEvent> = new EventEmitter();
+  throwinend: EventEmitter<SwingEvent> = new EventEmitter();
 
-  dragstart: EventEmitter<DragEvent> = new EventEmitter();
-  dragmove: EventEmitter<DragEvent> = new EventEmitter();
-  dragend: EventEmitter<DragEvent> = new EventEmitter();
+  dragstart: EventEmitter<SwingEvent> = new EventEmitter();
+  dragmove: EventEmitter<SwingEvent> = new EventEmitter();
+  dragend: EventEmitter<SwingEvent> = new EventEmitter();
 
   cards: SwingCardComponent[];
   stack: Stack;
+  config: StackConfig;
 
   constructor() {
     this.cards = [];
@@ -53,7 +57,7 @@ export class SwingStackComponent implements AfterContentInit {
   }
 
   ngAfterContentInit() {
-    this.stack = Swing.Stack({});
+    this.stack = Swing.Stack(this.config ? this.config : {});
     this.cards.forEach((c) => this.stack.createCard(c.getNativeElement()));
 
     // Hook various events

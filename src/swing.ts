@@ -7,13 +7,10 @@ export enum ThrowDirection {
   RIGHT = 1
 }
 
-export interface ThrowEvent {
+export interface SwingEvent {
   target: HTMLElement;
-  throwDirection: ThrowDirection;
-}
-
-export interface DragEvent {
-  target: HTMLElement;
+  throwDirection?: ThrowDirection;
+  throwOutConfidence?: number;
 }
 
 export type ThrowEventName = 'throwin' | 'throwinend' |
@@ -26,14 +23,18 @@ export interface Card {
   throwIn(x: number, y: number): void;
   throwOut(x: number, y: number): void;
 
-  on(eventName: ThrowEventName, callabck: (event: ThrowEvent) => void): void;
-  on(eventName: DragEventName, callabck: (event: DragEvent) => void): void;
+  on(eventName: ThrowEventName, callabck: (event: SwingEvent) => void): void;
+  on(eventName: DragEventName, callabck: (event: SwingEvent) => void): void;
+}
+
+export interface StackConfig {
+  throwOutConfidence?: (offset: number, elment: HTMLElement) => number;
 }
 
 export interface Stack {
   createCard(elment: HTMLElement): void;
   getCard(element: HTMLElement): Card;
 
-  on(eventName: ThrowEventName, callabck: (event: ThrowEvent) => void): void;
-  on(eventName: DragEventName, callabck: (event: DragEvent) => void): void;
+  on(eventName: ThrowEventName, callabck: (event: SwingEvent) => void): void;
+  on(eventName: DragEventName, callabck: (event: SwingEvent) => void): void;
 }
