@@ -27,16 +27,16 @@ const Swing = require('swing');
 })
 export class SwingStackComponent implements AfterContentInit {
 
-  throwout: EventEmitter<ThrowEvent> = new EventEmitter();
-  throwoutend: EventEmitter<ThrowEvent> = new EventEmitter();
-  throwoutleft: EventEmitter<ThrowEvent> = new EventEmitter();
-  throwoutright: EventEmitter<ThrowEvent> = new EventEmitter();
-  throwin: EventEmitter<ThrowEvent> = new EventEmitter();
-  throwinend: EventEmitter<ThrowEvent> = new EventEmitter();
+  throwout: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
+  throwoutend: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
+  throwoutleft: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
+  throwoutright: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
+  throwin: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
+  throwinend: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
 
-  dragstart: EventEmitter<DragEvent> = new EventEmitter();
-  dragmove: EventEmitter<DragEvent> = new EventEmitter();
-  dragend: EventEmitter<DragEvent> = new EventEmitter();
+  dragstart: EventEmitter<DragEvent> = new EventEmitter<DragEvent>();
+  dragmove: EventEmitter<DragEvent> = new EventEmitter<DragEvent>();
+  dragend: EventEmitter<DragEvent> = new EventEmitter<DragEvent>();
 
   cards: SwingCardComponent[];
   stack: Stack;
