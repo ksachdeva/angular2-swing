@@ -6,15 +6,16 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "sourceMap": true,
-        "outDir": "dist"
+        "outDir": "dist",
+        "removeComments": false
     },
     "exclude": [
         "node_modules",
         "typings/main.d.ts",
         "typings/main"
     ],
-    "compileOnSave": true,
-    "buildOnSave": true,
+    "compileOnSave": false,
+    "buildOnSave": false,
     "atom": {
         "rewriteTsconfig": false
     }
