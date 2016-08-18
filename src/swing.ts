@@ -37,3 +37,14 @@ export interface Stack {
   on(eventName: ThrowEventName, callabck: (event: ThrowEvent) => void): void;
   on(eventName: DragEventName, callabck: (event: DragEvent) => void): void;
 }
+
+export interface StackConfig {
+  isThrowOut?: (offset: number, element: HTMLElement, throwOutConfidence: number) => boolean;
+  throwOutConfidence?: (offset: number, targetElement: HTMLElement) => number;
+  throwOutDistance?: (minThrowOutDistance: number, maxThrowOutDistance: number) => number;
+  minThrowOutDistance?: number;
+  maxThrowOutDistance?: number;
+  rotation?: (x: number, y: number, targetElement: HTMLElement, maxRotation: number) => number;
+  maxRotation?: number;
+  transform?: (targetElement: HTMLElement, x: number, y: number, r: number) => void;
+}

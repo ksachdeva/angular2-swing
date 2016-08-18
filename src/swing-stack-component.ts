@@ -1,9 +1,9 @@
 declare var require: any;
 
-import {Component, ContentChildren, QueryList,
+import {Component, Input, ContentChildren, QueryList,
   AfterContentInit, EventEmitter } from '@angular/core';
 
-import { ThrowDirection, ThrowEvent, DragEvent, Stack, Card} from './swing';
+import { ThrowDirection, ThrowEvent, DragEvent, Stack, Card, StackConfig} from './swing';
 import {SwingCardComponent} from './swing-card-component';
 
 const Swing = require('swing');
@@ -13,6 +13,9 @@ const Swing = require('swing');
   template: `
     <ng-content></ng-content>
   `,
+  inputs: [
+    'stackConfig'
+  ],
   outputs: [
     'throwout',
     'throwoutend',
@@ -26,6 +29,8 @@ const Swing = require('swing');
   ]
 })
 export class SwingStackComponent implements AfterContentInit {
+
+  @Input() stackConfig: StackConfig;
 
   throwout: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
   throwoutend: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
@@ -53,7 +58,7 @@ export class SwingStackComponent implements AfterContentInit {
   }
 
   ngAfterContentInit() {
-    this.stack = Swing.Stack({});
+    this.stack = Swing.Stack(this.stackConfig || {});
     this.cards.forEach((c) => this.stack.createCard(c.getNativeElement()));
 
     // Hook various events
