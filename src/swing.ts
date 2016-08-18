@@ -21,7 +21,24 @@ export interface ThrowEvent {
 }
 
 export interface DragEvent {
+  /**
+   * The element being dragged.
+   */
   target: HTMLElement;
+
+  /**
+   * Only available when the event is dragmove
+   */
+  throwOutConfidence?: number;
+  /**
+   * Only available when the event is dragmove
+   */
+  throwDirection?: ThrowDirection;
+  /**
+   * Only available when the event is dragmove
+   */
+  offset?: number;
+
 }
 
 export type ThrowEventName = 'throwin' | 'throwinend' |
