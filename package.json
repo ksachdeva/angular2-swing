@@ -1,6 +1,6 @@
 {
     "name": "angular2-swing",
-    "version": "0.7.1",
+    "version": "0.8.0",
     "description": "Angular 2 Component for Swing (Tinder style cards)",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -16,13 +16,15 @@
     },
     "homepage": "https://github.com/ksachdeva/angular2-swing#readme",
     "dependencies": {
-        "@angular/core": "2.0.0-rc.4",
-        "@angular/common": "2.0.0-rc.4",
+        "swing": "^3.0.3"
+    },
+    "devDependencies": {
+        "@angular/core": "2.0.0-rc.5",
+        "@angular/common": "2.0.0-rc.5",
         "es6-promise": "^3.1.2",
         "es6-shim": "^0.33.3",
         "es7-reflect-metadata": "^1.6.0",
         "rxjs": "5.0.0-beta.6",
-        "zone.js": "0.6.12",
-        "swing": "^3.0.3"
+        "zone.js": "0.6.12"
     }
 }
