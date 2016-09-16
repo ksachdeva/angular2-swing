@@ -18,10 +18,9 @@ import {
 
 @Component({
   selector: 'app',
-  directives: [SwingStackComponent, SwingCardComponent],
   template: `
     <div id="viewport">
-      <ul class="stack" swing-stack [stackConfig]="stackConfig" #myswing1 (throwout)="onThrowOut($event)">
+      <ul class="stack" swing-stack  [stackConfig]="stackConfig"  #myswing1 (throwout)="onThrowOut($event)">
         <li swing-card #mycards1 [ngClass]="c.name" *ngFor="let c of cards">{{ c.symbol }}</li>
       </ul>
     </div>
@@ -38,7 +37,7 @@ import {
 
   `
 })
-export class App {
+export class AppComponent {
 
   @ViewChild('myswing1') swingStack: SwingStackComponent;
   @ViewChildren('mycards1') swingCards: QueryList<SwingCardComponent>;
@@ -95,7 +94,6 @@ export class App {
     console.log('Hook from the template', event.throwDirection);
   }
 }
-
 
 ```
 
