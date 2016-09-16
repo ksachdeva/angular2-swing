@@ -13,9 +13,6 @@ const Swing = require('swing');
   template: `
     <ng-content></ng-content>
   `,
-  inputs: [
-    'stackConfig'
-  ],
   outputs: [
     'throwout',
     'throwoutend',
