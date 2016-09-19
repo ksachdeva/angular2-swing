@@ -4,7 +4,7 @@
 npm install angular2-swing --save
 
 # Usage
-```
+```JavaScript
 import {Component, ViewChild, ViewChildren, QueryList} from '@angular/core';
 
 import {
