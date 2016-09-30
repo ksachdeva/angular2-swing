@@ -1,5 +1,13 @@
 
-export * from './swing-stack-component';
-export * from './swing-card-component';
-export * from './swing';
-export * from './swing.module';
+export { SwingStackComponent } from './swing-stack-component';
+export { SwingCardComponent } from './swing-card-component';
+export {
+    ThrowDirection,
+    ThrowEvent,
+    DragEvent,
+    ThrowEventName,
+    DragEventName,
+    Card,
+    Stack,
+    StackConfig } from './swing';
+export { SwingModule } from './swing.module';
