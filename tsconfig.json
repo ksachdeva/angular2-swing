@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5",
+        "module": "es2015",
         "declaration": true,
         "module": "commonjs",
         "emitDecoratorMetadata": true,
@@ -9,6 +10,13 @@
         "outDir": "dist",
         "removeComments": false
     },
+    "angularCompilerOptions": {
+	    "genDir": "aot"
+    },
+    "include": [
+        "src/**/*",
+        "typings/**/*"
+    ],
     "exclude": [
         "node_modules",
         "typings/main.d.ts",
