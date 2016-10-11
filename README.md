@@ -1,5 +1,11 @@
 # angular2-swing
 
+# Build package
+
+`npm run build`
+
+dont forget `typings install`
+
 # Install
 npm install angular2-swing --save
 

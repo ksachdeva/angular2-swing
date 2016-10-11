@@ -4,3 +4,5 @@ typings
 tsconfig.json
 tslint.json
 typings.json
+aot
+.idea/
