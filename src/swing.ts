@@ -4,7 +4,9 @@
 
 export enum ThrowDirection {
   LEFT = -1,
-  RIGHT = 1
+  RIGHT = 1,
+  TOP = 2,
+  BOTTOM = 3
 }
 
 export interface ThrowEvent {
@@ -42,7 +44,7 @@ export interface DragEvent {
 }
 
 export type ThrowEventName = 'throwin' | 'throwinend' |
-  'throwout' | 'throwoutend' | 'throwoutleft' | 'throwoutright';
+  'throwout' | 'throwoutend' | 'throwoutleft' | 'throwtop' | 'throwbottom' | 'throwoutright';
 
 export type DragEventName = 'dragstart' | 'dragmove' | 'dragend';
 

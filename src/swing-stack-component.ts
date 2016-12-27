@@ -18,6 +18,8 @@ const Swing = require('swing');
     'throwoutend',
     'throwoutleft',
     'throwoutright',
+    'throwoutup',
+    'throwoutdown',
     'throwin',
     'throwinend',
     'dragstart',
@@ -33,6 +35,8 @@ export class SwingStackComponent implements AfterContentInit {
   throwoutend: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
   throwoutleft: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
   throwoutright: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
+  throwoutup: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
+  throwoutdown: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
   throwin: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
   throwinend: EventEmitter<ThrowEvent> = new EventEmitter<ThrowEvent>();
 
@@ -68,5 +72,7 @@ export class SwingStackComponent implements AfterContentInit {
     this.stack.on('dragstart', $event => this.dragstart.emit($event));
     this.stack.on('dragmove', $event => this.dragmove.emit($event));
     this.stack.on('dragend', $event => this.dragend.emit($event));
+    this.stack.on('throwoutup', $event => this.throwoutup.emit($event));
+    this.stack.on('throwoutdown', $event => this.throwoutdown.emit($event));
   }
 }
