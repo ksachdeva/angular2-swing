@@ -1,12 +1,14 @@
 // here the ambient definitions for the swing
 // module are specified. Normally they should be at DefinitelyTyped
 // or better with the repository
+declare var require: any;
+const Swing = require('swing');
 
 export enum ThrowDirection {
   LEFT = -1,
   RIGHT = 1,
-  TOP = 2,
-  BOTTOM = 3
+  UP = 2,
+  DOWN = 3
 }
 
 export interface ThrowEvent {
@@ -44,7 +46,7 @@ export interface DragEvent {
 }
 
 export type ThrowEventName = 'throwin' | 'throwinend' |
-  'throwout' | 'throwoutend' | 'throwoutleft' | 'throwtop' | 'throwbottom' | 'throwoutright';
+  'throwout' | 'throwoutend' | 'throwoutleft' | 'throwoutup' | 'throwoutdown' | 'throwoutright';
 
 export type DragEventName = 'dragstart' | 'dragmove' | 'dragend';
 
@@ -106,6 +108,7 @@ export interface StackConfig {
   minThrowOutDistance?: number;
   maxThrowOutDistance?: number;
   maxRotation?: number;
+  allowedDirections?: Array<any>;
 
   /**
    * Determines if element is being thrown out of the stack.
@@ -163,4 +166,12 @@ export interface StackConfig {
    * @return {undefined}
    */
   transform?: (element: HTMLElement, x: number, y: number, r: number) => void;
+}
+
+export enum Direction {
+  DOWN = Swing.Direction.DOWN,
+  INVALID = Swing.Direction.INVALID,
+  LEFT = Swing.Direction.LEFT,
+  RIGHT = Swing.Direction.RIGHT,
+  UP = Swing.Direction.UP
 }

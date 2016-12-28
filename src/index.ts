@@ -1,4 +1,3 @@
-
 export { SwingStackComponent } from './swing-stack-component';
 export { SwingCardComponent } from './swing-card-component';
 export {
@@ -9,5 +8,6 @@ export {
     DragEventName,
     Card,
     Stack,
-    StackConfig } from './swing';
+    StackConfig,
+    Direction } from './swing';
 export { SwingModule } from './swing.module';
