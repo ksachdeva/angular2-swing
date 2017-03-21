@@ -20,7 +20,7 @@
     },
     "homepage": "https://github.com/ksachdeva/angular2-swing#readme",
     "dependencies": {
-        "swing": "^4.0.0"
+        "swing": "^4.2.0"
     },
     "devDependencies": {
         "@angular/common": "^2.0.2",

@@ -54,13 +54,16 @@ export class AppComponent {
   constructor() {
 
     this.stackConfig = {
-      throwOutConfidence: (offset: number, targetElement: HTMLElement) => {
-        // you would put ur logic based on offset & targetelement to determine
-        // what is your throwout confidence
-        return 1;
+      // Default setting only allows UP, LEFT and RIGHT so you can override this as below
+      allowedDirections: [Direction.UP, Direction.DOWN, Direction.LEFT, Direction.RIGHT],
+      // Now need to send offsetX and offsetY with element instead of just offset
+      throwOutConfidence: (offsetX, offsetY, element) => {
+        return Math.min(Math.max(Math.abs(offsetX) / (element.offsetWidth / 1.7), Math.abs(offsetY) / (element.offsetHeight / 2)), 1);
       },
-      minThrowOutDistance: 700    // default value is 400
-    };
+      throwOutDistance: (d) => {
+        return 800;
+      }
+    }
 
     this.cards = [
       { name: 'clubs', symbol: '♣' },

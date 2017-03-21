@@ -127,11 +127,12 @@ export interface StackConfig {
    *
    * Ration of the absolute distance from the original card position and element width.
    *
-   * @param {Number} offset Distance from the dragStart.
+   * @param {Number} offsetX Distance from the dragStart.
+   * @param {Number} offsetY Distance from the dragStart.
    * @param {HTMLElement} element Element.
    * @return {Number}
    */
-  throwOutConfidence?: (offset: number, element: HTMLElement) => number;
+  throwOutConfidence?: (offsetX: number, offsetY: number, element: HTMLElement) => number;
 
   /**
    * Calculates a distances at which the card is thrown out of the stack.
