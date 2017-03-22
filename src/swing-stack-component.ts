@@ -51,16 +51,16 @@ export class SwingStackComponent implements AfterContentInit {
     this.cards = [];
   }
 
-  addCard(card: SwingCardComponent) {
+  addCard(card: SwingCardComponent, prepend: boolean = false) {
     this.cards.push(card);
     if (this.stack) {
-      this.stack.createCard(card.getNativeElement());
+      this.stack.createCard(card.getNativeElement(), prepend);
     }
   }
 
   ngAfterContentInit() {
     this.stack = Swing.Stack(this.stackConfig || {});
-    this.cards.forEach((c) => this.stack.createCard(c.getNativeElement()));
+    this.cards.forEach((c) => this.stack.createCard(c.getNativeElement(), c.prepend));
 
     // Hook various events
     this.stack.on('throwout', $event => this.throwout.emit($event));

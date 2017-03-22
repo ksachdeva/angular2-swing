@@ -17,7 +17,7 @@ export class SwingCardComponent {
   }
 
   ngOnInit() {
-    this.swingStack.addCard(this);
+    this.swingStack.addCard(this, this.prepend);
   }
 
   getElementRef() {
