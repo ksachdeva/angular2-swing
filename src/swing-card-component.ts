@@ -1,4 +1,4 @@
-import {Component, ElementRef, Host} from '@angular/core';
+import {Component, ElementRef, Host, Input} from '@angular/core';
 import {SwingStackComponent} from './swing-stack-component';
 import {Card} from './swing';
 
@@ -9,6 +9,8 @@ import {Card} from './swing';
   `
 })
 export class SwingCardComponent {
+  @Input() prepend: boolean = false;
+
   constructor(
     private elmentRef: ElementRef,
     private swingStack: SwingStackComponent) {
