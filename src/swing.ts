@@ -87,9 +87,10 @@ export interface Stack {
    * Creates an instance of Card and associates it with an element.
    *
    * @param {HTMLElement} element
+   * @param {boolean} prepend
    * @return {Card}
    */
-  createCard(elment: HTMLElement): void;
+  createCard(elment: HTMLElement, prepend: boolean): void;
 
   /**
    * Returns an instance of Card associated with an element.
