@@ -1,7 +1,6 @@
 export { SwingStackComponent } from './swing-stack-component';
 export { SwingCardComponent } from './swing-card-component';
 export {
-    ThrowDirection,
     ThrowEvent,
     DragEvent,
     ThrowEventName,

@@ -4,13 +4,6 @@
 declare var require: any;
 const Swing = require('swing');
 
-export enum ThrowDirection {
-  LEFT = -1,
-  RIGHT = 1,
-  UP = 2,
-  DOWN = 3
-}
-
 export interface ThrowEvent {
   /**
    * The element being dragged.
@@ -21,7 +14,7 @@ export interface ThrowEvent {
    * The direction in which the element is being dragged: Card.DIRECTION_LEFT
    * or Card.DIRECTION_RIGHT
    */
-  throwDirection: ThrowDirection;
+  throwDirection: Direction;
 }
 
 export interface DragEvent {
@@ -37,7 +30,7 @@ export interface DragEvent {
   /**
    * Only available when the event is dragmove
    */
-  throwDirection?: ThrowDirection;
+  throwDirection?: Direction;
   /**
    * Only available when the event is dragmove
    */
