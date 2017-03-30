@@ -1,36 +1,36 @@
 {
-    "name": "angular2-swing",
-    "version": "0.10.0",
-    "description": "Angular 2 Component for Swing (Tinder style cards)",
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
-    "scripts": {
-        "build-app": "./node_modules/.bin/ngc",
-        "clean": "rm -rf ./dist && rm -rf ./aot",
-        "build": "npm run clean && npm run build-app"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ksachdeva/angular2-swing.git"
-    },
-    "author": "Kapil Sachdeva <ksachdeva17@gmail.com>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/ksachdeva/angular2-swing/issues"
-    },
-    "homepage": "https://github.com/ksachdeva/angular2-swing#readme",
-    "dependencies": {
-        "swing": "^4.2.0"
-    },
-    "devDependencies": {
-        "@angular/common": "^4.0.0",
-        "@angular/compiler": "^4.0.0",
-        "@angular/core": "^4.0.0",
-        "@angular/cli": "1.0.0",
-        "@angular/compiler-cli": "^4.0.0",
-        "core-js": "^2.4.1",
-        "reflect-metadata": "^0.1.3",
-        "rxjs": "5.0.0-beta.12",
-        "zone.js": "^0.8.4"
-    }
+  "name": "angular2-swing",
+  "version": "0.11.0",
+  "description": "Angular 2 Component for Swing (Tinder style cards)",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build-app": "./node_modules/.bin/ngc",
+    "clean": "rm -rf ./dist && rm -rf ./aot",
+    "build": "npm run clean && npm run build-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksachdeva/angular2-swing.git"
+  },
+  "author": "Kapil Sachdeva <ksachdeva17@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ksachdeva/angular2-swing/issues"
+  },
+  "homepage": "https://github.com/ksachdeva/angular2-swing#readme",
+  "dependencies": {
+    "swing": "^4.2.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/cli": "1.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "^0.8.4"
+  }
 }
