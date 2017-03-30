@@ -1,11 +1,8 @@
 // here the ambient definitions for the swing
 // module are specified. Normally they should be at DefinitelyTyped
 // or better with the repository
-
-export enum ThrowDirection {
-  LEFT = -1,
-  RIGHT = 1
-}
+declare var require: any;
+const Swing = require('swing');
 
 export interface ThrowEvent {
   /**
@@ -17,7 +14,7 @@ export interface ThrowEvent {
    * The direction in which the element is being dragged: Card.DIRECTION_LEFT
    * or Card.DIRECTION_RIGHT
    */
-  throwDirection: ThrowDirection;
+  throwDirection: Direction;
 }
 
 export interface DragEvent {
@@ -33,7 +30,7 @@ export interface DragEvent {
   /**
    * Only available when the event is dragmove
    */
-  throwDirection?: ThrowDirection;
+  throwDirection?: Direction;
   /**
    * Only available when the event is dragmove
    */
@@ -42,7 +39,7 @@ export interface DragEvent {
 }
 
 export type ThrowEventName = 'throwin' | 'throwinend' |
-  'throwout' | 'throwoutend' | 'throwoutleft' | 'throwoutright';
+  'throwout' | 'throwoutend' | 'throwoutleft' | 'throwoutup' | 'throwoutdown' | 'throwoutright';
 
 export type DragEventName = 'dragstart' | 'dragmove' | 'dragend';
 
@@ -104,6 +101,7 @@ export interface StackConfig {
   minThrowOutDistance?: number;
   maxThrowOutDistance?: number;
   maxRotation?: number;
+  allowedDirections?: Array<any>;
 
   /**
    * Determines if element is being thrown out of the stack.
@@ -122,11 +120,12 @@ export interface StackConfig {
    *
    * Ration of the absolute distance from the original card position and element width.
    *
-   * @param {Number} offset Distance from the dragStart.
+   * @param {Number} offsetX Distance from the dragStart.
+   * @param {Number} offsetY Distance from the dragStart.
    * @param {HTMLElement} element Element.
    * @return {Number}
    */
-  throwOutConfidence?: (offset: number, element: HTMLElement) => number;
+  throwOutConfidence?: (offsetX: number, offsetY: number, element: HTMLElement) => number;
 
   /**
    * Calculates a distances at which the card is thrown out of the stack.
@@ -161,4 +160,12 @@ export interface StackConfig {
    * @return {undefined}
    */
   transform?: (element: HTMLElement, x: number, y: number, r: number) => void;
+}
+
+export enum Direction {
+  DOWN = Swing.Direction.DOWN,
+  INVALID = Swing.Direction.INVALID,
+  LEFT = Swing.Direction.LEFT,
+  RIGHT = Swing.Direction.RIGHT,
+  UP = Swing.Direction.UP
 }
