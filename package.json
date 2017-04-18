@@ -20,7 +20,7 @@
     },
     "homepage": "https://github.com/ksachdeva/angular2-swing#readme",
     "dependencies": {
-        "swing": "https://gergeo@bitbucket.org/gergeo/swing.git"
+        "swing": "^4.3.0"
     },
     "devDependencies": {
         "@angular/common": "^2.0.2",
