@@ -3,7 +3,7 @@ declare var require: any;
 import {Component, Input, ContentChildren, QueryList,
   AfterContentInit, EventEmitter } from '@angular/core';
 
-import { ThrowDirection, ThrowEvent, DragEvent, Stack, Card, StackConfig} from './swing';
+import { Direction, ThrowEvent, DragEvent, Stack, Card, StackConfig } from './swing';
 import {SwingCardComponent} from './swing-card-component';
 
 const Swing = require('swing');
