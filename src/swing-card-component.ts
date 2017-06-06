@@ -31,4 +31,10 @@ export class SwingCardComponent {
   getCard(): Card {
     return this.swingStack.stack.getCard(this.getNativeElement());
   }
+
+  destroyCard() {
+		this.swingStack.cards.pop();
+		var card = this.swingStack.stack.getCard(this.getNativeElement());
+		this.swingStack.stack.destroyCard(card);
+	}
 }
