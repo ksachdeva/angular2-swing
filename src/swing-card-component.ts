@@ -11,6 +11,8 @@ import {Card} from './swing';
 export class SwingCardComponent {
   @Input() prepend: boolean = false;
 
+  card: Card;
+
   constructor(
     private elmentRef: ElementRef,
     private swingStack: SwingStackComponent) {
@@ -30,5 +32,11 @@ export class SwingCardComponent {
 
   getCard(): Card {
     return this.swingStack.stack.getCard(this.getNativeElement());
+  }
+
+  destroyCard() {
+    this.swingStack.cards = this.swingStack.cards.filter(swingCardComponent => swingCardComponent !== this);
+    let card = this.swingStack.stack.getCard(this.getNativeElement());
+    this.swingStack.stack.destroyCard(card);
   }
 }

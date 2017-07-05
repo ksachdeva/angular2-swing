@@ -93,6 +93,12 @@ export interface Stack {
    */
   getCard(element: HTMLElement): Card;
 
+  /**
+   *
+   *@param {Card} card
+   */
+  destroyCard(card: Card): void;
+
   on(eventName: ThrowEventName, callabck: (event: ThrowEvent) => void): void;
   on(eventName: DragEventName, callabck: (event: DragEvent) => void): void;
 }
