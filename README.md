@@ -14,6 +14,7 @@ npm install angular2-swing --save
 import {Component, ViewChild, ViewChildren, QueryList} from '@angular/core';
 
 import {
+  Direction,
   StackConfig,
   Stack,
   Card,
