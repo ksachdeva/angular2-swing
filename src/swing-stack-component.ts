@@ -65,7 +65,11 @@ export class SwingStackComponent implements AfterContentInit {
     // Hook various events
     this.stack.on('throwout', $event => this.throwout.emit($event));
     this.stack.on('throwoutend', $event => this.throwoutend.emit($event));
-    this.stack.on('throwoutleft', $event => this.throwoutleft.emit($event));
+    this.stack.on('throwoutleft', $event => 
+				  {this.throwoutleft.emit($event); 
+				  	console.log($event);
+				  }
+				 );
     this.stack.on('throwoutright', $event => this.throwoutright.emit($event));
     this.stack.on('throwin', $event => this.throwin.emit($event));
     this.stack.on('throwinend', $event => this.throwinend.emit($event));
